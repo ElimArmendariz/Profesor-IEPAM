@@ -1,0 +1,36 @@
+html{
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+header{
+    max-height: 100px;
+    display: flex;
+    position: sticky;
+    border-bottom: 2px solid #3E0F96;
+}
+
+
+.logo-header{
+    width: 175px;
+}
+
+.logo{
+    max-width: 100%;
+}
+
+.texto{
+    font-weight: 400;
+    font-size: 3em;
+    line-height: 150%;
+    text-align: center;
+    padding: 30vh 10vw;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 600px){
+    .texto{
+        font-size: 2em;
+    }
+}
