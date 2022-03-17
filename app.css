@@ -11,7 +11,7 @@ header{
 }
 
 
-.logo-header{
+.headerContainer{
     width: 175px;
 }
 
@@ -19,12 +19,23 @@ header{
     max-width: 100%;
 }
 
+.container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.cross{
+    padding-right: 10em;
+    padding-top: 15vh;
+}
+
 .texto{
     font-weight: 400;
     font-size: 3em;
     line-height: 150%;
     text-align: center;
-    padding: 30vh 10vw;
+    padding: 10vh 10vw;
     display: flex;
     align-items: center;
 }
