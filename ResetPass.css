@@ -63,10 +63,11 @@ input{
     border: 2px solid #3E0F96;
     border-radius: 25px;
     height: 6vh;
-    width: 60vw; 
+    width: 60vw;
+    text-align: center;
+    font-size: 1.7em;
 }
 
 input::placeholder{
-    font-size: 1.5em;
     text-align: center;
 }
