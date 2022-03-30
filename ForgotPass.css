@@ -1,0 +1,47 @@
+html{
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+header{
+    max-height: 100px;
+    display: flex;
+    position: sticky;
+    border-bottom: 2px solid #3E0F96;
+}
+
+
+.headerContainer{
+    width: 175px;
+}
+
+.logo{
+    max-width: 100%;
+}
+
+.container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.cross{
+    padding-right: 10em;
+    padding-top: 15vh;
+}
+
+.texto{
+    font-weight: 400;
+    font-size: 3em;
+    line-height: 150%;
+    text-align: center;
+    padding: 10vh 10vw;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 600px){
+    .texto{
+        font-size: 2em;
+    }
+}
