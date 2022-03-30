@@ -14,5 +14,7 @@ export const GlobalStyle = createGlobalStyle`
    *{
         font-family: 'OpenSansLight';
         line-height: 1.5;
+        margin: 0;
+        padding: 0;
     }
 `;
