@@ -47,6 +47,7 @@ header{
 .secondContainer{
     display: flex;
     justify-content: center;
+    padding-bottom: 7vh;
 }
 
 textarea{
@@ -60,10 +61,28 @@ textarea:focus{
     outline: none!important;
 }
 
+p{
+    text-align: center;
+    font-size: 1.7em;
+    color: #3E0F96;
+    margin: 0 0;
+}
+
+.thirdContainer{
+    padding-top: 5vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.formatedButton{
+    border: none;
+    background: none;
+}
+
 .buttonContainer{
     display:flex;
     justify-content: center;
-    padding-top: 20vh;
+    padding-top: 8vh;
     flex-grow: 3;
 }
 
