@@ -3,7 +3,9 @@ import styled from 'styled-components'
 
 export const HeaderContainer = styled.div `
     width: 175px;
-
+    @media (max-width: 600px){
+        width: 100px;
+    }
 `;
 
 export const Logo = styled.img `

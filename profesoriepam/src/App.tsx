@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {GlobalStyle} from './GlobalStyle';
 import GlobalFonts from './fonts/fonts';
 import ForgotPassword from './components/ForgotPassword';
+import ResetPassword from './components/ResetPassword';
 import UnityFrame from './components/UnityFrame';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Route path='/' element={<div>Profesor IEPAM</div>} />
           <Route path='/forgotpassword' element={<ForgotPassword />} />
           <Route path='/unity' element={<UnityFrame />} />
+          <Route path='/resetpassword' element={<ResetPassword/>} />
         </Routes>
         <GlobalStyle />
         <GlobalFonts />

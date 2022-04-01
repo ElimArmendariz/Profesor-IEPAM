@@ -1,48 +1,30 @@
-html{
-    font-family: 'Open Sans', sans-serif;
-}
+import styled from 'styled-components';
 
-
-header{
-    max-height: 100px;
-    display: flex;
-    position: sticky;
-    border-bottom: 2px solid #3E0F96;
-}
-
-.headerContainer{
-    width: 12vw;
-}
-
-.logo{
-    max-width: 100%;
-}
-
-.container{
+export const Container = styled.div `
     display: flex;
     justify-content: flex-end;
     align-items: center;
-}
+`;
 
-.cross{
+export const Cross = styled.img `
     padding-right: 10vw;
     padding-top: 15vh;
-}
+`;
 
-.formsContainer{
+export const FormsContainer = styled.div `
     display: flex;
     justify-content: center;
     align-items: center;
-}
+`;
 
-.buttonContainer{
+export const ButtonContainer = styled.div `
     display:flex;
     justify-content: center;
     padding-top: 20vh;
     flex-grow: 3;
-}
+`;
 
-button{
+export const Button = styled.button `
     border: 2px solid #3E0F96;
     border-radius: 25px;
     padding: 0.5vh 10vw;
@@ -50,51 +32,42 @@ button{
     color: white;
     font-size: 1.7em;
     transition: background-color 0.25s;
-}
 
-button:hover{
-    background-color: #26085f;
-    cursor: pointer;
-}
+    &:hover{
+        background-color: #26085f;
+        cursor: pointer;
+    }
+`;
 
-.passwordContainer{
+export const PasswordContainer = styled.div `
     display: flex;
     border: 2px solid #3E0F96;
     border-radius: 25px;
     height: 6vh;
     width: 60vw;
+    margin-top: 3vh;
     flex-direction: row;
-}
+`;
 
-.logoPassword{
+export const LogoPassword = styled.img `
     padding: 0 2vw;
     max-height: 100%;
-}
+    @media (max-width: 600px){
+        max-height: 75%;
+`;
 
-input{
+export const Input = styled.input `
     border: none;
     text-align: center;
     font-size: 1.7em;
     width: 45vw;
-}
-
-input:focus{
-    outline: none!important;
-}
-
-input::placeholder{
-    text-align: center;
-}
-
-@media (max-width: 600px){
-    input{
+    &:focus{
+        outline: none!important;
+    }
+    ::placeholder,
+    ::-webkit-input-placeholder {
+        text-align: center;
+    }
+    @media (max-width: 600px){
         font-size: medium;
-    }
-    .logoPassword{
-        max-height: 75%;
-    }
-    .headerContainer{
-        width: 100px;
-    }
-    
-}
+`;
