@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Texto, Cross } from "./ForgotPassword.styles";
 import CrossIMG  from "../../images/Cross.svg";
-import Header from "../Header";
+import Header from "../Header-Password";
 
 const ForgotPassword = () => {
 

@@ -3,7 +3,7 @@ import { Container, Cross, FormsContainer, ButtonContainer, Button,
  PasswordContainer, LogoPassword, Input} from "./ResetPassword.styles";
 import CrossIMG  from "../../images/Cross.svg";
 import PasswordIMG from "../../images/Password.svg";
-import Header from "../Header";
+import Header from "../Header-Password";
 
 const ResetPassword = () => {
 
