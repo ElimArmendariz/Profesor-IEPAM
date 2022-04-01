@@ -1,5 +1,16 @@
 import styled from "styled-components";
 
+export const ImgContainer = styled.div `
+    width: 175px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const User = styled.img `
+    max-width: 30%; 
+`;
+
 export const FirstContainer = styled.div `
     display: flex;
     justify-content: space-between;
@@ -18,7 +29,7 @@ export const NombreCurso = styled.input `
     ::-webkit-input-placeholder {
         text-align: center;
     }
-    
+
     &:focus{
         outline: none!important;
     }
@@ -42,6 +53,11 @@ export const Texto = styled.p `
     margin: 0 0;
 `;
 
+export const SecondContainer = styled.div `
+    display: flex;
+    justify-content: center;
+    padding-bottom: 7vh;
+`
 
 export const ThirdContainer = styled.div `
     padding-top: 5vh;
