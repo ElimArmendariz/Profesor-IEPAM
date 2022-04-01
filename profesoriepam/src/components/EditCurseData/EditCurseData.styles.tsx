@@ -67,7 +67,10 @@ export const ThirdContainer = styled.div `
 
 export const FormatedButton = styled.button `
     border: none;
-    background: none
+    background: none;
+    &:hover{
+        cursor: pointer;
+    }
 `;
 
 export const ButtonContainer = styled.div `

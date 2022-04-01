@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     ImgContainer, FirstContainer, SecondContainer, ThirdContainer, NombreCurso,
-    CajaTexto, Texto, FormatedButton, ButtonContainer, Guardar,User
+    CajaTexto, Texto, FormatedButton, ButtonContainer, Guardar, User
 } from "./EditCurseData.styles";
 import Header from "../HeaderUser";
 import UserIMG from '../../images/User.svg';
@@ -10,6 +10,10 @@ import PlusIMG from '../../images/Plus.svg';
 import CrossIMG from '../../images/Cross.svg';
 
 const EditCurseData = () => {
+    const [slideNumber, setSlideNumber] = useState(1);
+    if (slideNumber < 0){
+        setSlideNumber(0);
+    }
     return (
         <>
             <Header />
@@ -33,9 +37,9 @@ const EditCurseData = () => {
 
             <Texto>Número de diapositivas</Texto>
             <ThirdContainer>
-                <FormatedButton><img src={MinusIMG} /></FormatedButton>
-                <Texto>1</Texto>
-                <FormatedButton><img src={PlusIMG} /></FormatedButton>
+                <FormatedButton onClick={() => setSlideNumber(slideNumber - 1)}><img src={MinusIMG} /></FormatedButton>
+                <Texto>{slideNumber}</Texto>
+                <FormatedButton onClick={() => setSlideNumber(slideNumber + 1)}><img src={PlusIMG} /></FormatedButton>
             </ThirdContainer>
 
             <ButtonContainer>
