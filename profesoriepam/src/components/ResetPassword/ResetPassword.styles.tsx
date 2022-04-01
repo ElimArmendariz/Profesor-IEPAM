@@ -25,10 +25,10 @@ export const ButtonContainer = styled.div `
 `;
 
 export const Button = styled.button `
-    border: 2px solid #3E0F96;
+    border: 2px solid var(--purple);
     border-radius: 25px;
     padding: 0.5vh 10vw;
-    background-color: #3E0F96;
+    background-color: var(--purple);
     color: white;
     font-size: 1.7em;
     transition: background-color 0.25s;
@@ -41,7 +41,7 @@ export const Button = styled.button `
 
 export const PasswordContainer = styled.div `
     display: flex;
-    border: 2px solid #3E0F96;
+    border: 2px solid var(--purple);
     border-radius: 25px;
     height: 6vh;
     width: 60vw;

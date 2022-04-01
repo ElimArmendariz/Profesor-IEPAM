@@ -3,17 +3,16 @@ import { ImgContainer, Logo, User, HeaderWrapper } from "./HeaderUser.styles";
 import LogoIMG from "../../images/Logo.png";
 import UserIMG from "../../images/User.svg";
 
-const HeaderUser = () =>{
-    return(
+const HeaderUser = () => {
+    return (
         <>
             <HeaderWrapper>
-                <ImgContainer>
-                    <Logo src={LogoIMG}/>
-                </ImgContainer>
+                <Logo src={LogoIMG} />
 
                 <ImgContainer>
-                    <User src={UserIMG}/>
+                    <User src={UserIMG} />
                 </ImgContainer>
+                
             </HeaderWrapper>
         </>
     )

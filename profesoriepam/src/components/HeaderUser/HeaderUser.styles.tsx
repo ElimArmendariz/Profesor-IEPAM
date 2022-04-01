@@ -1,18 +1,19 @@
 import styled from "styled-components";
 
 export const ImgContainer = styled.div `
-    width: 175px;
+    width: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
 `;
 
 export const Logo = styled.img `
-    max-width: 100%;    
-`;
+    width: 175px;  
+`; 
 
 export const User = styled.img `
-    max-width: 30%; 
+    width: 53px;
+    height: 53px;
 `;
 
 export const HeaderWrapper = styled.header `
@@ -20,4 +21,5 @@ export const HeaderWrapper = styled.header `
     display: flex;
     position: sticky;
     border-bottom: 2px solid var(--purple);
+    justify-content: space-between;
 `;

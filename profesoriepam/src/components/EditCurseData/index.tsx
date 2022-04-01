@@ -4,7 +4,6 @@ import {
     CajaTexto, Texto, FormatedButton, ButtonContainer, Guardar,User
 } from "./EditCurseData.styles";
 import Header from "../HeaderUser";
-import LogoIMG from '../../images/Logo.png';
 import UserIMG from '../../images/User.svg';
 import MinusIMG from '../../images/Minus.svg';
 import PlusIMG from '../../images/Plus.svg';
@@ -17,18 +16,18 @@ const EditCurseData = () => {
             <form action="#" name="formsCurso">
                 <FirstContainer>
                     <ImgContainer>
-                        <a href="#"><User src={UserIMG} /></a>
+                        <User src={UserIMG} />
                     </ImgContainer>
 
-                    <NombreCurso type="text" placeholder="Nombre del curso" name="nombrecurso" id="nombrecurso" />
+                    <NombreCurso type="text" placeholder="Nombre del curso" name="nombrecurso" />
 
                     <ImgContainer>
-                        <a href="#"><img src={CrossIMG} /></a>
+                        <img src={CrossIMG} />
                     </ImgContainer>
                 </FirstContainer>
 
                 <SecondContainer>
-                    <CajaTexto name="descripcion" placeholder="Descripción" rows={8} cols={68} />
+                    <CajaTexto name="descripcion" placeholder="Descripción" rows={5} cols={61} />
                 </SecondContainer>
             </form>
 
