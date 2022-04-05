@@ -6,6 +6,7 @@ import GlobalFonts from './fonts/fonts';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
 import EditCurseData from './components/EditCurseData';
+import EditDiapositives from './components/EditDiapositives';
 import UnityFrame from './components/UnityFrame';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path='/unity' element={<UnityFrame />} />
           <Route path='/resetpassword' element={<ResetPassword/>} />
           <Route path='/editcurse' element={<EditCurseData/>} />
+          <Route path='/editdiapositives' element={<EditDiapositives/>} />
         </Routes>
         <GlobalStyle />
         <GlobalFonts />
