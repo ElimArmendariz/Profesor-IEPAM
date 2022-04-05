@@ -6,19 +6,28 @@ import routes from './routes/posts';
 import { graphqlHTTP } from 'express-graphql';
 import schema from './schema';
 import { resolver } from './resolver';
+import bodyParser from 'body-parser';
 
-/*
+
 var app = express();
 app.use('/graphql/users', graphqlHTTP({
   schema: schema,
   rootValue: resolver,
   graphiql: true,
 }));
-app.listen(4000);
-console.log('GraphQL API en http://localhost:4000/graphql');
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use(morgan('dev'))
+app.use(routes)
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+app.listen(3000);
+console.log('GraphQL API en http://localhost:3000/graphql');
 
-*/
 
+
+/*
 
 const router: Express = express();
 
@@ -57,4 +66,4 @@ router.use((req, res, next) => {
 // Server 
 const httpServer = http.createServer(router);
 const PORT: any = process.env.PORT ?? 3000;
-httpServer.listen(PORT, () => console.log(`The server is running on port ${PORT}`));
+httpServer.listen(PORT, () => console.log(`The server is running on port ${PORT}`));*/
