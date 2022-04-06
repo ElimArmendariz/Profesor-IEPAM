@@ -4,34 +4,35 @@ export const CrossDiv = styled.div `
     padding: 2vh 0;
     height: 4vh;
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: flex-end;
 `;
 
 export const Cross = styled.img `
-    max-height: 100%
-`
+    max-height: 100%;
+    margin-right: 10vw;
+`;
 
 export const FirstContainer = styled.div `
     display: flex;
     justify-content: space-evenly;
-`
+`;
 
 export const Container = styled.div `
-    display: flex;
     padding-top: 10vh;
-    justify-content: center;
 `;
 
 export const RadioContainer = styled.div `
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin: 1.5vh;
 `;
 
 export const RadioButton = styled.input`
     border: 0px;
     width: 4vw;
     height: 4vh;
-    
+    accent-color: var(--purple);
 `;
 
 export const URLinput = styled.input`
@@ -55,4 +56,46 @@ export const URLinput = styled.input`
 
 export const BlockContainer = styled.div`
     display: block;
-`
+`;
+
+export const Pregunta = styled.input `
+    border: 2px solid var(--purple);
+    border-radius: 20px;
+    width: 50vw;
+    text-align: center;
+    font-size: 1.7em;
+    padding: 0 1vw;
+
+    ::placeholder,
+    ::-webkit-input-placeholder {
+        text-align: center;
+    }
+
+    &:focus{
+        outline: none!important;
+    }
+`;
+
+export const Respuesta = styled.input `
+    border: 2px solid var(--purple);
+    border-radius: 20px;
+    max-width: 15vw;
+    font-size: 1.7em;
+    padding: 0 1vw;
+
+    &:focus{
+        outline: none!important;
+    }
+
+    @media(max-width: 600px){
+        max-width: 40vw;
+    }
+`;
+
+export const AnswersContainer = styled.div `
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 80vw;
+    padding: 6vh 25vw;
+`;

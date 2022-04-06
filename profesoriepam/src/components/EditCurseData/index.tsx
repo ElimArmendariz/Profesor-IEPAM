@@ -31,7 +31,7 @@ const EditCurseData = () => {
                 </FirstContainer>
 
                 <SecondContainer>
-                <CajaTexto name="descripcion" placeholder="Descripción" rows={5} cols={61} />
+                    <CajaTexto name="descripcion" placeholder="Descripción" rows={5} cols={61} />
                 </SecondContainer>
             </form>
 

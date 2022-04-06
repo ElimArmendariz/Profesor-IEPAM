@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CajaTexto, Texto } from "../EditCurseData/EditCurseData.styles";
-import { CrossDiv, Container, RadioContainer, FirstContainer, Cross, RadioButton, URLinput, BlockContainer } from "./EditDiapositives.styles";
+import { CrossDiv, Container, RadioContainer, FirstContainer, Cross, RadioButton, URLinput, BlockContainer, Pregunta, Respuesta, AnswersContainer } from "./EditDiapositives.styles";
 import Header from "../HeaderUser";
 import CrossIMG from "../../images/Cross.svg"
 
@@ -56,17 +56,44 @@ const EditDiapositives = () => {
             </FirstContainer>
 
             <Container>
-                {isTextoShown ? <CajaTexto name="texto" placeholder="Ingresa aquí tu texto" rows={5} cols={61} /> : <></>}
+                {isTextoShown ? <FirstContainer><CajaTexto name="texto" placeholder="Ingresa aquí tu texto" rows={5} cols={61} /></FirstContainer> : <></>}
                 {isVideoShown ?
                     <>
                         <BlockContainer>
                             <Texto>Inserta la liga del video</Texto>
-                            <URLinput type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size={30} />
+                            <FirstContainer>
+                                <URLinput type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size={30} />
+                            </FirstContainer>
                         </BlockContainer>
                     </> : <></>}
+                {isPreguntaShown ?
+                    <>
+                        <FirstContainer>
+                            <Pregunta type="text" placeholder="Escribe aquí la pregunta" name="insertPregunta" />
+                        </FirstContainer>
+                        <AnswersContainer>
+                            <RadioContainer>
+                                <RadioButton type="radio" name="option2" value="a" id="a" />
+                                <Respuesta type="text" name="a" placeholder="Respuesta" />
+                            </RadioContainer>
 
+                            <RadioContainer>
+                                <RadioButton type="radio" name="option2" value="b" id="b" />
+                                <Respuesta type="text" name="b" placeholder="Respuesta" />
+                            </RadioContainer>
+
+                            <RadioContainer>
+                                <RadioButton type="radio" name="option2" value="c" id="c" />
+                                <Respuesta type="text" name="b" placeholder="Respuesta" />
+                            </RadioContainer>
+
+                            <RadioContainer>
+                                <RadioButton type="radio" name="option2" value="d" id="d" />
+                                <Respuesta type="text" name="b" placeholder="Respuesta" />
+                            </RadioContainer>
+                        </AnswersContainer>
+                    </> : <></>}
             </Container>
-
         </>
     )
 }
