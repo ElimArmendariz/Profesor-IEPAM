@@ -12,17 +12,25 @@ interface Post {
 
 
 // getting all posts
-const getPosts = async (req: Request, res: Response, next: NextFunction) => {
-    const sql = `select * from User;`
-    connection.query(sql, (error: any, results: any) => {
+const getPosts =(): string => {
+    const sql = `select id, email, password from User;`
+    const time  = new Date()
+    console.log("query time " + time)
+    connection.query(sql,(error: any, results: any) =>{
+        const resul = JSON.stringify(results)
+        console.log("results " + resul + "type " + typeof(resul) + " error " + error)
         if(error) {
-            return res.status(500).send(error.message);
+            console.log("hay error")
+            return error.message;
         } else if(results.length > 0) {
-            return res.status(200).send(results);
+            console.log("no hay error")
+            return resul;
         } else{
-            return res.status(100).send('No results for this query');
+            console.log("notresults")
+            return 'No results for this query';
         }
     })
+    return "Noestoyhaciendonada";
 };
 
 

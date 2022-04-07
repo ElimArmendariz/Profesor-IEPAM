@@ -1,7 +1,12 @@
 import connection from "./database/db"
 import controller from './controllers/posts';
+import { post } from "./routes/posts";
 
-var users = controller.getPosts;
 export const resolver = {
-    users: () => { return users; }
+    users: ()  => { 
+        var posts = controller.getPosts();
+        const time  = new Date()
+        console.log("posts "+ posts +" time resolver " + time)
+        return posts;        
+    }
 };

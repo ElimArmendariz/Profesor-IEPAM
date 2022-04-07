@@ -21,8 +21,12 @@ app.use(morgan('dev'))
 app.use(routes)
 app.get('/', (req, res) => {
     res.send('Hello World!')
+    console.log("Hola elim "+req +" "+ res)
 })
-app.listen(3000);
+app.post('/graphql/users', (req, res) => {
+    console.log("Hola elim "+req +" "+ res)
+})
+app.listen(3003);
 console.log('GraphQL API en http://localhost:3000/graphql');
 
 
