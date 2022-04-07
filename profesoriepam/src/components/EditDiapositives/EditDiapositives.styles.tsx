@@ -99,3 +99,9 @@ export const AnswersContainer = styled.div `
     max-width: 80vw;
     padding: 6vh 25vw;
 `;
+
+export const ArrowLeft = styled.img `
+    position: absolute;
+    top: 40%;
+    left: 2%;
+`;
