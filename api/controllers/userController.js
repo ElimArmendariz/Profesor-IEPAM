@@ -1,4 +1,20 @@
+const mysqlconfig = require('../database/db')
 
+
+const getUsers = () => {
+    var sql = `select * from User;`
+    var dblogs;
+    mysqlconfig.query(sql, (error, results) => {
+        if(error) {
+            dblogs = "Error"
+        } else if(results.length > 0) {
+            dblogs = JSON.stringify(json(results));
+        } else{
+            dblogs ="No"
+        }
+    })
+    return dblogs;
+}
 
     /*
     async logUser(req , res){

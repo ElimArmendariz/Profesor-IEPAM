@@ -1,13 +1,15 @@
 var express = require('express');
-const mysqlconfig = require('./database/db')
 var { graphqlHTTP } = require('express-graphql');
 const {buildSchema} = require('graphql');
+const mysqlconfig = require('./database/db')
+const tempController = require('./controllers/tempController')
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 const router = require('./routes/route');
-const port = 4000
+const port = 4010
 const app = express();
+
 const schema = buildSchema(`
   type User {
     id: Int
@@ -22,25 +24,28 @@ const schema = buildSchema(`
     addUser(email: String, password: String): User
   }
 `);
+
 var users = [];
 var counter=1;
 
 const getUsers = () => {
     var sql = `select * from User;`
+    var dblogs;
     mysqlconfig.query(sql, (error, results) => {
         if(error) {
-             return "ubounerror"
+            dblogs = "Error"
         } else if(results.length > 0) {
-            return results;
+             users=results;
         } else{
-            return "Noaicrac"
+            dblogs ="No"
         }
     })
+    return dblogs;
 }
 
-console.log(getUsers);
+console.log(getUsers());
 
-var users = getUsers();
+var users = tempController.getUsers;
 // Función para resolver las peticiones
 var root = {
   users: () => { return users; },
@@ -77,5 +82,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log('Now browse to localhost:4000/graphql');  
+  console.log('Now browse to localhost:4001/graphql');  
 })
