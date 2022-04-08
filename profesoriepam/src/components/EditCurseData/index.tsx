@@ -44,7 +44,7 @@ const EditCurseData = () => {
                     </FirstContainer>
 
                     <SecondContainer>
-                        <CajaTexto name="descripcion" placeholder="Descripción" rows={5} cols={80} value={descripcionCurso} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => { setDescripcionCurso(e.target.value) }} />
+                        <CajaTexto name="descripcion" placeholder="Descripción" value={descripcionCurso} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => { setDescripcionCurso(e.target.value) }} />
                     </SecondContainer>
                 </form>
 

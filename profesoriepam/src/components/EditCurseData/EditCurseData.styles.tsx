@@ -40,6 +40,8 @@ export const CajaTexto = styled.textarea `
     border-radius: 20px;
     padding: 1vh 1.5vw;
     font-size: 1.5em;
+    width: 49vw;
+    height: 20vh;
     word-break: break-word;
     &:focus{
         outline: none!important;
