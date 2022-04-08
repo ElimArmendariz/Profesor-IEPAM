@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { CajaTexto, Guardar, Texto } from "../EditCurseData/EditCurseData.styles";
-import { CrossDiv, Container, RadioContainer, FirstContainer, Cross, RadioButton,
-    URLinput, BlockContainer, Pregunta, Respuesta, AnswersContainer, ArrowLeft, ArrowRight,ButtonContainer
+import {
+    CrossDiv, Container, RadioContainer, FirstContainer, Cross, RadioButton,
+    URLinput, BlockContainer, Pregunta, Respuesta, AnswersContainer, ArrowLeft, ArrowRight, ButtonContainer
 } from "./EditDiapositives.styles";
 import Header from "../HeaderUser";
 import CrossIMG from "../../images/Cross.svg"
@@ -9,32 +10,44 @@ import ArrowLeftIMG from '../../images/ArrowLeft.png';
 import ArrowRightIMG from '../../images/ArrowRigth.png';
 import EditCurseData from "../EditCurseData";
 import internal from "stream";
+import { render } from "@testing-library/react";
 
 interface Props {
     sn: number
 }
 
-interface Slide{
+interface Slide {
     text: string;
     video: boolean;
     question: boolean;
-    answer1: string; 
-    answer2: string; 
-    answer3: string; 
+    answer1: string;
+    answer2: string;
+    answer3: string;
     answer4: string;
+    correct_ans: number;
 }
 
-interface Array{
+interface Array {
     slides: Slide[];
 }
 
-const EditDiapositives : React.FC<Props> = ({sn}) => {
+const EditDiapositives: React.FC<Props> = ({ sn }) => {
+    //Hooks para tipo de diapositiva
     const [isTextoShown, setTextoShown] = useState(false);
     const [isVideoShown, setVideoShown] = useState(false);
     const [isPreguntaShown, setPreguntaShown] = useState(false);
+
     const [passScreen, setPassScreen] = useState(true);
+    //Hook para mostrar el boton
     const [showButton, setShowButton] = useState(false);
+    //Hooks para obtener los datos ingresados para el slide
     const [textoSlide, setTextoSlide] = useState("");
+    const [array, setArray] = useState<string[]>([]);
+    const [ans1, setAns1] = useState('');
+    const [ans2, setAns2] = useState('');
+    const [ans3, setAns3] = useState('');
+    const [ans4, setAns4] = useState('');
+    const [correctAns, setCorrectAns] = useState(0);
 
     const handleOptions = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.currentTarget.checked;
@@ -60,11 +73,30 @@ const EditDiapositives : React.FC<Props> = ({sn}) => {
         }
     }
 
-    const addSlide = () => {
+    const handleCorrectAns = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.currentTarget.checked;
+        const name = e.currentTarget.id;
 
+        if(value === true && name ==='a'){
+            setCorrectAns(1);
+        }
+        if(value === true && name ==='b'){
+            setCorrectAns(2);
+        }
+        if(value === true && name ==='c'){
+            setCorrectAns(3);
+        }
+        if(value === true && name ==='d'){
+            setCorrectAns(4);
+        }
     }
 
-    const saveInput = () => {
+    const slide = () => {
+        return {textoSlide, ans1, ans2, ans3, ans4, correctAns}
+    }
+
+    const addSlide = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
 
     }
 
@@ -91,55 +123,104 @@ const EditDiapositives : React.FC<Props> = ({sn}) => {
                     <label htmlFor="pregunta">Pregunta</label>
                 </RadioContainer>
             </FirstContainer>
-
-            <Container>
-                <ArrowLeft src={ArrowLeftIMG} onClick={() => setPassScreen(false)} />
-                <ArrowRight src={ArrowRightIMG} />
-                {isTextoShown ? <FirstContainer><CajaTexto name="texto" placeholder="Ingresa aquí tu texto" onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => { setTextoSlide(e.target.value) }} value={"text"}/></FirstContainer> : <></>}
-                {isVideoShown ?
-                    <>
-                        <BlockContainer>
-                            <Texto>Inserta la liga del video</Texto>
-                            <FirstContainer>
-                                <URLinput type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size={30} />
-                            </FirstContainer>
-                        </BlockContainer>
-                    </> : <></>}
-                {isPreguntaShown ?
-                    <>
+            <form onSubmit={addSlide} >
+                <Container>
+                    <ArrowLeft src={ArrowLeftIMG} onClick={() => setPassScreen(false)} />
+                    <ArrowRight src={ArrowRightIMG} />
+                    {isTextoShown ?
                         <FirstContainer>
-                            <Pregunta type="text" placeholder="Escribe aquí la pregunta" name="insertPregunta" />
-                        </FirstContainer>
-                        <AnswersContainer>
-                            <RadioContainer>
-                                <RadioButton type="radio" name="option2" value="a" id="a" />
-                                <Respuesta type="text" name="a" placeholder="Respuesta" />
-                            </RadioContainer>
+                            <CajaTexto
+                                name="texto"
+                                placeholder="Ingresa aquí tu texto"
+                                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => { setTextoSlide(e.target.value) }}
+                                value={textoSlide}
+                            />
+                        </FirstContainer> : <></>}
+                    {isVideoShown ?
+                        <>
+                            <BlockContainer>
+                                <Texto>Inserta la liga del video</Texto>
+                                <FirstContainer>
+                                    <URLinput
+                                        type="url"
+                                        name="url"
+                                        id="url"
+                                        placeholder="https://example.com"
+                                        pattern="https://.*"
+                                        size={30}
+                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setTextoSlide(e.target.value) }}
+                                        value={textoSlide}
+                                    />
+                                </FirstContainer>
+                            </BlockContainer>
+                        </> : <></>}
+                    {isPreguntaShown ?
+                        <>
+                            <FirstContainer>
+                                <Pregunta
+                                    type="text"
+                                    placeholder="Escribe aquí la pregunta"
+                                    name="insertPregunta"
+                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setTextoSlide(e.target.value) }}
+                                    value={textoSlide}
+                                />
+                            </FirstContainer>
+                            <AnswersContainer>
+                                <RadioContainer>
+                                    <RadioButton type="radio" name="option2" value="a" id="a" onChange={handleCorrectAns} />
+                                    <Respuesta
+                                        type="text"
+                                        name="a"
+                                        placeholder="Respuesta"
+                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setAns1(e.target.value) }}
+                                        value={ans1}
+                                    />
+                                </RadioContainer>
 
-                            <RadioContainer>
-                                <RadioButton type="radio" name="option2" value="b" id="b" />
-                                <Respuesta type="text" name="b" placeholder="Respuesta" />
-                            </RadioContainer>
+                                <RadioContainer>
+                                    <RadioButton type="radio" name="option2" value="b" id="b" onChange={handleCorrectAns}  />
+                                    <Respuesta
+                                        type="text"
+                                        name="b"
+                                        placeholder="Respuesta"
+                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setAns2(e.target.value) }}
+                                        value={ans2}
+                                    />
+                                </RadioContainer>
 
-                            <RadioContainer>
-                                <RadioButton type="radio" name="option2" value="c" id="c" />
-                                <Respuesta type="text" name="b" placeholder="Respuesta" />
-                            </RadioContainer>
+                                <RadioContainer>
+                                    <RadioButton type="radio" name="option2" value="c" id="c" onChange={handleCorrectAns} />
+                                    <Respuesta
+                                        type="text"
+                                        name="b"
+                                        placeholder="Respuesta"
+                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setAns3(e.target.value) }}
+                                        value={ans3}
+                                    />
+                                </RadioContainer>
 
-                            <RadioContainer>
-                                <RadioButton type="radio" name="option2" value="d" id="d" />
-                                <Respuesta type="text" name="b" placeholder="Respuesta" />
-                            </RadioContainer>
-                        </AnswersContainer>
-                    </> : <></>}
-            </Container>
-            
-            { showButton ?
-                <ButtonContainer>
-                    <Guardar type="submit">GUARDAR</Guardar>
-                </ButtonContainer>
-                : <></>}
-            
+                                <RadioContainer>
+                                    <RadioButton type="radio" name="option2" value="d" id="d" onChange={handleCorrectAns} />
+                                    <Respuesta
+                                        type="text"
+                                        name="b"
+                                        placeholder="Respuesta"
+                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setAns4(e.target.value) }}
+                                        value={ans4}
+                                    />
+                                </RadioContainer>
+                            </AnswersContainer>
+                        </> : <></>}
+
+                </Container>
+
+                {showButton ?
+                    <ButtonContainer>
+                        <Guardar type="submit">GUARDAR</Guardar>
+                    </ButtonContainer>
+                    : <></>}
+            </form>
+
         </>
     )
 }
