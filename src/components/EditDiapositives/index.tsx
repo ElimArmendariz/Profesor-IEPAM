@@ -16,20 +16,6 @@ interface Props {
     sn: number
 }
 
-interface Slide {
-    text: string;
-    video: boolean;
-    question: boolean;
-    answer1: string;
-    answer2: string;
-    answer3: string;
-    answer4: string;
-    correct_ans: number;
-}
-
-interface Array {
-    slides: Slide[];
-}
 
 const EditDiapositives: React.FC<Props> = ({ sn }) => {
     //Hooks para tipo de diapositiva
