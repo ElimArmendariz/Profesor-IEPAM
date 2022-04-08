@@ -14,7 +14,7 @@ const EditDiapositives = () => {
     const [isPreguntaShown, setPreguntaShown] = useState(false);
     const [passScreen, setPassScreen] = useState(true);
 
-    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleOptions = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.currentTarget.checked;
         const name = e.currentTarget.id;
 
@@ -44,17 +44,17 @@ const EditDiapositives = () => {
 
             <FirstContainer>
                 <RadioContainer>
-                    <RadioButton type="radio" name="option" value="texto" id="texto" onChange={handleInput} />
+                    <RadioButton type="radio" name="option" value="texto" id="texto" onChange={handleOptions} />
                     <label htmlFor="texto">Texto</label>
                 </RadioContainer>
 
                 <RadioContainer>
-                    <RadioButton type="radio" name="option" value="video" id="video" onChange={handleInput} />
+                    <RadioButton type="radio" name="option" value="video" id="video" onChange={handleOptions} />
                     <label htmlFor="video">Video</label>
                 </RadioContainer>
 
                 <RadioContainer>
-                    <RadioButton type="radio" name="option" value="pregunta" id="pregunta" onChange={handleInput} />
+                    <RadioButton type="radio" name="option" value="pregunta" id="pregunta" onChange={handleOptions} />
                     <label htmlFor="pregunta">Pregunta</label>
                 </RadioContainer>
             </FirstContainer>
