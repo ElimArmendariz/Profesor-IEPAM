@@ -15,8 +15,8 @@ const EditCurseData = () => {
     const [passScreen, setPassScreen] = useState(true);
     const [nombreCurso, setNombreCurso] = useState('');
     const [descripcionCurso, setDescripcionCurso] = useState("")
-    if (slideNumber < 0) {
-        setSlideNumber(0);
+    if (slideNumber < 1) {
+        setSlideNumber(1);
     }
 
     const onClick = () => {
