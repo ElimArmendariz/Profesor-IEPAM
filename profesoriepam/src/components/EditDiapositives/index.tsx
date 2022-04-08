@@ -1,18 +1,25 @@
 import React, { useState } from "react";
-import { ArrowRight, ButtonContainer, CajaTexto, Guardar, Texto } from "../EditCurseData/EditCurseData.styles";
-import { CrossDiv, Container, RadioContainer, FirstContainer, Cross, RadioButton, URLinput, BlockContainer, Pregunta, Respuesta, AnswersContainer, ArrowLeft } from "./EditDiapositives.styles";
+import { CajaTexto, Guardar, Texto } from "../EditCurseData/EditCurseData.styles";
+import { CrossDiv, Container, RadioContainer, FirstContainer, Cross, RadioButton,
+    URLinput, BlockContainer, Pregunta, Respuesta, AnswersContainer, ArrowLeft, ArrowRight,ButtonContainer
+} from "./EditDiapositives.styles";
 import Header from "../HeaderUser";
 import CrossIMG from "../../images/Cross.svg"
 import ArrowLeftIMG from '../../images/ArrowLeft.png';
 import ArrowRightIMG from '../../images/ArrowRigth.png';
 import EditCurseData from "../EditCurseData";
+import internal from "stream";
 
+interface Props {
+    sn: number
+}
 
-const EditDiapositives = () => {
+const EditDiapositives : React.FC<Props> = ({sn}) => {
     const [isTextoShown, setTextoShown] = useState(false);
     const [isVideoShown, setVideoShown] = useState(false);
     const [isPreguntaShown, setPreguntaShown] = useState(false);
     const [passScreen, setPassScreen] = useState(true);
+    const [showButton, setShowButton] = useState(false);
 
     const handleOptions = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.currentTarget.checked;
@@ -22,16 +29,19 @@ const EditDiapositives = () => {
             setTextoShown(true);
             setVideoShown(false);
             setPreguntaShown(false);
+            setShowButton(true);
         }
         if (value === true && name === "video") {
             setTextoShown(false);
             setVideoShown(true);
             setPreguntaShown(false);
+            setShowButton(true);
         }
         if (value == true && name === "pregunta") {
             setTextoShown(false);
             setVideoShown(false);
             setPreguntaShown(true);
+            setShowButton(true);
         }
     }
 
@@ -100,10 +110,13 @@ const EditDiapositives = () => {
                         </AnswersContainer>
                     </> : <></>}
             </Container>
-
-            <ButtonContainer>
-                <Guardar type="submit">GUARDAR</Guardar>
-            </ButtonContainer>
+            
+            { showButton ?
+                <ButtonContainer>
+                    <Guardar type="submit">GUARDAR</Guardar>
+                </ButtonContainer>
+                : <></>}
+            
         </>
     )
 }

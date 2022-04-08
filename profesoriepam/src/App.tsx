@@ -18,7 +18,6 @@ function App() {
           <Route path='/unity' element={<UnityFrame />} />
           <Route path='/resetpassword' element={<ResetPassword/>} />
           <Route path='/editcurse' element={<EditCurseData/>} />
-          <Route path='/editdiapositives' element={<EditDiapositives/>} />
         </Routes>
         <GlobalStyle />
         <GlobalFonts />

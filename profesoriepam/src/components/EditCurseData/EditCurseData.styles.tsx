@@ -98,14 +98,3 @@ export const Guardar = styled.button `
     }
 `;
 
-export const ArrowLeft = styled.img `
-    position: absolute;
-    top: 40%;
-    left: 2%;
-`;
-
-export const ArrowRight = styled.img `
-    position: absolute;
-    top: 40%;
-    right: 2%;
-`;

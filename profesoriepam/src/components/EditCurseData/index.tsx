@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
     ImgContainer, FirstContainer, SecondContainer, ThirdContainer, NombreCurso,
-    CajaTexto, Texto, FormatedButton, ButtonContainer, Guardar, User, ArrowLeft, ArrowRight
+    CajaTexto, Texto, FormatedButton, ButtonContainer, Guardar, User
 } from "./EditCurseData.styles";
 import Header from "../HeaderUser";
 import UserIMG from '../../images/User.svg';
@@ -12,7 +12,7 @@ import EditDiapositives from "../EditDiapositives";
 
 const EditCurseData = () => {
     const [slideNumber, setSlideNumber] = useState(1);
-    const [passScreen, setPassScreen] = useState(true);
+    const [passScreen, setPassScreen] = useState(false);
     const [nombreCurso, setNombreCurso] = useState('');
     const [descripcionCurso, setDescripcionCurso] = useState("")
     if (slideNumber < 1) {
@@ -22,13 +22,13 @@ const EditCurseData = () => {
     const onClick = () => {
         console.log({ nombreCurso, descripcionCurso, slideNumber })
         if (nombreCurso != '' && descripcionCurso != "") {
-            setPassScreen(false)
+            setPassScreen(true)
         }
     }
 
     return (
         <>
-            {passScreen ? <>
+            {!passScreen ? <>
                 <Header />
                 <form action="#" name="formsCurso" >
                     <FirstContainer>
@@ -59,7 +59,7 @@ const EditCurseData = () => {
                     <Guardar type="submit" onClick={onClick}>GUARDAR</Guardar>
                 </ButtonContainer>
             </>
-                : <EditDiapositives />
+                : <EditDiapositives sn={slideNumber} />
             }
         </>
     )

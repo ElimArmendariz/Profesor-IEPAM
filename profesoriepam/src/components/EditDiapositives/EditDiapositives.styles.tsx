@@ -100,8 +100,30 @@ export const AnswersContainer = styled.div `
     padding: 6vh 25vw;
 `;
 
+export const ButtonContainer = styled.div `
+    display:flex;
+    justify-content: center;
+    padding-top: 8vh;
+    flex-grow: 3;
+`;
+
 export const ArrowLeft = styled.img `
     position: absolute;
     top: 40%;
     left: 2%;
+    transform: scale(0.8);
+    @media(max-width: 600px){
+        transform: scale(0.6);
+    }
+    
+`;
+
+export const ArrowRight = styled.img `
+    position: absolute;
+    top: 40%;
+    right: 2%;
+    transform: scale(0.8);
+    @media(max-width: 600px){
+        transform: scale(0.6);
+    }
 `;
