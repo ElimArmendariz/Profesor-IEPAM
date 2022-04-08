@@ -14,12 +14,27 @@ interface Props {
     sn: number
 }
 
+interface Slide{
+    text: string;
+    video: boolean;
+    question: boolean;
+    answer1: string; 
+    answer2: string; 
+    answer3: string; 
+    answer4: string;
+}
+
+interface Array{
+    slides: Slide[];
+}
+
 const EditDiapositives : React.FC<Props> = ({sn}) => {
     const [isTextoShown, setTextoShown] = useState(false);
     const [isVideoShown, setVideoShown] = useState(false);
     const [isPreguntaShown, setPreguntaShown] = useState(false);
     const [passScreen, setPassScreen] = useState(true);
     const [showButton, setShowButton] = useState(false);
+    const [textoSlide, setTextoSlide] = useState("");
 
     const handleOptions = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.currentTarget.checked;
@@ -43,6 +58,14 @@ const EditDiapositives : React.FC<Props> = ({sn}) => {
             setPreguntaShown(true);
             setShowButton(true);
         }
+    }
+
+    const addSlide = () => {
+
+    }
+
+    const saveInput = () => {
+
     }
 
     return (
@@ -72,7 +95,7 @@ const EditDiapositives : React.FC<Props> = ({sn}) => {
             <Container>
                 <ArrowLeft src={ArrowLeftIMG} onClick={() => setPassScreen(false)} />
                 <ArrowRight src={ArrowRightIMG} />
-                {isTextoShown ? <FirstContainer><CajaTexto name="texto" placeholder="Ingresa aquí tu texto" rows={5} cols={61} /></FirstContainer> : <></>}
+                {isTextoShown ? <FirstContainer><CajaTexto name="texto" placeholder="Ingresa aquí tu texto" onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => { setTextoSlide(e.target.value) }} value={"text"}/></FirstContainer> : <></>}
                 {isVideoShown ?
                     <>
                         <BlockContainer>
