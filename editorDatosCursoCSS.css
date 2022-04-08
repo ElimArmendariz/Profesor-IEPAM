@@ -1,0 +1,106 @@
+html{
+    font-family: 'Open Sans', sans-serif!important;
+}
+
+header{
+    max-height: 100px;
+    display: flex;
+    position: sticky;
+    border-bottom: 2px solid #3E0F96;
+    justify-content: space-between;
+}
+
+.imgContainer{
+    width: 175px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    max-width: 100%;
+}
+
+.user{
+    max-width: 30%;
+}
+
+.firstContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 5vh 1vw;
+}
+
+#nombrecurso{
+    border: 2px solid #3E0F96;
+    border-radius: 20px;
+    width: 50vw;
+    text-align: center;
+    font-size: 1.7em;
+    padding: 0 1vw;
+}
+
+#nombrecurso::placeholder{
+    text-align: center;
+}
+
+.secondContainer{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 7vh;
+}
+
+textarea{
+    border: 2px solid #3E0F96;
+    border-radius: 20px;
+    padding: 1vh 1.5vw;
+    font-size: 1.5em;
+}
+
+textarea:focus{
+    outline: none!important;
+}
+
+p{
+    text-align: center;
+    font-size: 1.7em;
+    color: #3E0F96;
+    margin: 0 0;
+}
+
+.thirdContainer{
+    padding-top: 5vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.formatedButton{
+    border: none;
+    background: none;
+}
+
+.buttonContainer{
+    display:flex;
+    justify-content: center;
+    padding-top: 8vh;
+    flex-grow: 3;
+}
+
+.guardar{
+    border: 2px solid #3E0F96;
+    border-radius: 25px;
+    padding: 0.5vh 10vw;
+    background-color: #3E0F96;
+    color: white;
+    font-size: 1.7em;
+    transition: background-color 0.25s;
+}
+
+.guardar:hover{
+    background-color: #26085f;
+    cursor: pointer;
+}
+
+input:focus{
+    outline: none!important;
+}
