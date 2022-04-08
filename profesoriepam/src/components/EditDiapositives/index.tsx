@@ -37,75 +37,73 @@ const EditDiapositives = () => {
 
     return (
         <>
-            {passScreen ? <>
-                <Header />
-                <CrossDiv>
-                    <Cross src={CrossIMG} />
-                </CrossDiv>
+            <Header />
+            <CrossDiv>
+                <Cross src={CrossIMG} />
+            </CrossDiv>
 
-                <FirstContainer>
-                    <RadioContainer>
-                        <RadioButton type="radio" name="option" value="texto" id="texto" onChange={handleInput} />
-                        <label htmlFor="texto">Texto</label>
-                    </RadioContainer>
+            <FirstContainer>
+                <RadioContainer>
+                    <RadioButton type="radio" name="option" value="texto" id="texto" onChange={handleInput} />
+                    <label htmlFor="texto">Texto</label>
+                </RadioContainer>
 
-                    <RadioContainer>
-                        <RadioButton type="radio" name="option" value="video" id="video" onChange={handleInput} />
-                        <label htmlFor="video">Video</label>
-                    </RadioContainer>
+                <RadioContainer>
+                    <RadioButton type="radio" name="option" value="video" id="video" onChange={handleInput} />
+                    <label htmlFor="video">Video</label>
+                </RadioContainer>
 
-                    <RadioContainer>
-                        <RadioButton type="radio" name="option" value="pregunta" id="pregunta" onChange={handleInput} />
-                        <label htmlFor="pregunta">Pregunta</label>
-                    </RadioContainer>
-                </FirstContainer>
+                <RadioContainer>
+                    <RadioButton type="radio" name="option" value="pregunta" id="pregunta" onChange={handleInput} />
+                    <label htmlFor="pregunta">Pregunta</label>
+                </RadioContainer>
+            </FirstContainer>
 
-                <Container>
-                    <ArrowLeft src={ArrowLeftIMG} onClick={() => setPassScreen(false)} />
-                    <ArrowRight src={ArrowRightIMG} />
-                    {isTextoShown ? <FirstContainer><CajaTexto name="texto" placeholder="Ingresa aquí tu texto" rows={5} cols={61} /></FirstContainer> : <></>}
-                    {isVideoShown ?
-                        <>
-                            <BlockContainer>
-                                <Texto>Inserta la liga del video</Texto>
-                                <FirstContainer>
-                                    <URLinput type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size={30} />
-                                </FirstContainer>
-                            </BlockContainer>
-                        </> : <></>}
-                    {isPreguntaShown ?
-                        <>
+            <Container>
+                <ArrowLeft src={ArrowLeftIMG} onClick={() => setPassScreen(false)} />
+                <ArrowRight src={ArrowRightIMG} />
+                {isTextoShown ? <FirstContainer><CajaTexto name="texto" placeholder="Ingresa aquí tu texto" rows={5} cols={61} /></FirstContainer> : <></>}
+                {isVideoShown ?
+                    <>
+                        <BlockContainer>
+                            <Texto>Inserta la liga del video</Texto>
                             <FirstContainer>
-                                <Pregunta type="text" placeholder="Escribe aquí la pregunta" name="insertPregunta" />
+                                <URLinput type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size={30} />
                             </FirstContainer>
-                            <AnswersContainer>
-                                <RadioContainer>
-                                    <RadioButton type="radio" name="option2" value="a" id="a" />
-                                    <Respuesta type="text" name="a" placeholder="Respuesta" />
-                                </RadioContainer>
+                        </BlockContainer>
+                    </> : <></>}
+                {isPreguntaShown ?
+                    <>
+                        <FirstContainer>
+                            <Pregunta type="text" placeholder="Escribe aquí la pregunta" name="insertPregunta" />
+                        </FirstContainer>
+                        <AnswersContainer>
+                            <RadioContainer>
+                                <RadioButton type="radio" name="option2" value="a" id="a" />
+                                <Respuesta type="text" name="a" placeholder="Respuesta" />
+                            </RadioContainer>
 
-                                <RadioContainer>
-                                    <RadioButton type="radio" name="option2" value="b" id="b" />
-                                    <Respuesta type="text" name="b" placeholder="Respuesta" />
-                                </RadioContainer>
+                            <RadioContainer>
+                                <RadioButton type="radio" name="option2" value="b" id="b" />
+                                <Respuesta type="text" name="b" placeholder="Respuesta" />
+                            </RadioContainer>
 
-                                <RadioContainer>
-                                    <RadioButton type="radio" name="option2" value="c" id="c" />
-                                    <Respuesta type="text" name="b" placeholder="Respuesta" />
-                                </RadioContainer>
+                            <RadioContainer>
+                                <RadioButton type="radio" name="option2" value="c" id="c" />
+                                <Respuesta type="text" name="b" placeholder="Respuesta" />
+                            </RadioContainer>
 
-                                <RadioContainer>
-                                    <RadioButton type="radio" name="option2" value="d" id="d" />
-                                    <Respuesta type="text" name="b" placeholder="Respuesta" />
-                                </RadioContainer>
-                            </AnswersContainer>
-                        </> : <></>}
-                </Container>
+                            <RadioContainer>
+                                <RadioButton type="radio" name="option2" value="d" id="d" />
+                                <Respuesta type="text" name="b" placeholder="Respuesta" />
+                            </RadioContainer>
+                        </AnswersContainer>
+                    </> : <></>}
+            </Container>
 
-                <ButtonContainer>
-                    <Guardar type="submit">GUARDAR</Guardar>
-                </ButtonContainer>
-            </> : <EditCurseData />}
+            <ButtonContainer>
+                <Guardar type="submit">GUARDAR</Guardar>
+            </ButtonContainer>
         </>
     )
 }

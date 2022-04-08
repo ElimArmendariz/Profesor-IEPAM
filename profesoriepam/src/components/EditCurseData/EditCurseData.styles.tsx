@@ -40,9 +40,10 @@ export const CajaTexto = styled.textarea `
     border-radius: 20px;
     padding: 1vh 1.5vw;
     font-size: 1.5em;
+    word-break: break-word;
     &:focus{
         outline: none!important;
-    }
+    }  
 `;
 
 
