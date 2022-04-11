@@ -8,7 +8,7 @@ defmodule ApiWeb.Router do
 
   scope "/api" do
     pipe_through :api
-    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: Api.Schema
+    forward "/", Absinthe.Plug, schema: ApiWeb.Schema
   end
 
   # Enables the Swoosh mailbox preview in development.
@@ -16,10 +16,11 @@ defmodule ApiWeb.Router do
   # Note that preview only shows emails that were sent by the same
   # node running the Phoenix server.
   if Mix.env() == :dev do
-    scope "/dev" do
-      pipe_through [:fetch_session, :protect_from_forgery]
+      scope "/dev" do
+        pipe_through [:fetch_session, :protect_from_forgery]
 
-      forward "/mailbox", Plug.Swoosh.MailboxPreview
-    end
+        forward "/mailbox", Plug.Swoosh.MailboxPreview
+      end
+      forward "/graphiql", Absinthe.Plug.GraphiQL, schema: ApiWeb.Schema
   end
 end
