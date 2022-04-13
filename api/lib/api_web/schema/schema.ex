@@ -6,8 +6,7 @@ defmodule ApiWeb.Schema do
   import_types(Schema.Subject)
   import_types(Schema.Accounts)
   import_types(Schema.Content)
-
-
+  import_types(Schema.Progress)
 
   query do
     import_fields(:get_courses)
@@ -18,6 +17,9 @@ defmodule ApiWeb.Schema do
 
     import_fields(:get_slides)
     import_fields(:get_slide)
+
+    import_fields(:get_user_tracks)
+    import_fields(:get_user_track)
   end
 
   mutation do
@@ -32,5 +34,9 @@ defmodule ApiWeb.Schema do
     import_fields(:create_slide)
     import_fields(:update_slide)
     import_fields(:delete_slide)
+
+    import_fields(:create_user_track)
+    import_fields(:update_user_track)
+    import_fields(:delete_user_track)
   end
 end

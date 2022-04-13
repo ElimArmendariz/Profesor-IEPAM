@@ -16,6 +16,6 @@ defmodule Api.Progress.UserTrack do
   def changeset(user_track, attrs) do
     user_track
     |> cast(attrs, [:course_progress, :date_init, :date_finish])
-    |> validate_required([:course_progress, :date_init, :date_finish])
+    |> validate_required([:course_progress])
   end
 end
