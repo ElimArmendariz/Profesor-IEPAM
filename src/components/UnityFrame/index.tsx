@@ -3,6 +3,7 @@ import "./UnityFrame.css";
 
 import Unity, { UnityContext } from "react-unity-webgl";
 import HeaderUser from "../HeaderUser";
+import { useFetchSlides } from "../../hooks/useFetchSlides";
 
 const unityContext = new UnityContext({
     loaderUrl: "build/Slides.loader.js",
@@ -12,6 +13,10 @@ const unityContext = new UnityContext({
   });
 
 const UnityFrame = () =>  {
+    const data = useFetchSlides();
+    if(data !== "Loading..."){
+      console.log(data);
+    }
     return( 
         <>
             <HeaderUser/>
@@ -23,7 +28,3 @@ const UnityFrame = () =>  {
 };
 
 export default UnityFrame;
-
-
-
-

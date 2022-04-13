@@ -9,20 +9,36 @@ import EditCurseData from './components/EditCurseData';
 import EditDiapositives from './components/EditDiapositives';
 import UnityFrame from './components/UnityFrame';
 import LandingPage from './components/LandingPage';
+import { SEARCH_BASE_URL } from "./config";
+
+
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider
+} from "@apollo/client";
+
+const client = new ApolloClient({
+  uri: SEARCH_BASE_URL,
+  cache: new InMemoryCache()
+});
 
 function App() {
   return (
-    <Router>
-        <Routes>
-          <Route path='/' element={<LandingPage/>} />
-          <Route path='/forgotpassword' element={<ForgotPassword />} />
-          <Route path='/unity' element={<UnityFrame />} />
-          <Route path='/resetpassword' element={<ResetPassword/>} />
-          <Route path='/editcourse' element={<EditCurseData/>} />
-        </Routes>
-        <GlobalStyle />
-        <GlobalFonts />
-    </Router>
+    <ApolloProvider client={client}>
+      <Router>
+          <Routes>
+            <Route path='/' element={<LandingPage/>} />
+            <Route path='/forgotpassword' element={<ForgotPassword />} />
+            <Route path='/unity' element={<UnityFrame />} />
+            <Route path='/resetpassword' element={<ResetPassword/>} />
+            <Route path='/editcourse' element={<EditCurseData/>} />
+          </Routes>
+          <GlobalStyle />
+          <GlobalFonts />
+      </Router>
+    </ApolloProvider>
+
 
   );
 }

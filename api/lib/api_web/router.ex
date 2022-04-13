@@ -8,7 +8,7 @@ defmodule ApiWeb.Router do
 
   scope "/api" do
     pipe_through :api
-    forward "/", Absinthe.Plug, schema: ApiWeb.Schema
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: ApiWeb.Schema
   end
 
   # Enables the Swoosh mailbox preview in development.
@@ -21,6 +21,5 @@ defmodule ApiWeb.Router do
 
         forward "/mailbox", Plug.Swoosh.MailboxPreview
       end
-      forward "/graphiql", Absinthe.Plug.GraphiQL, schema: ApiWeb.Schema
   end
 end
