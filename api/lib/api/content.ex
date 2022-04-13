@@ -7,6 +7,9 @@ defmodule Api.Content do
   alias Api.Repo
 
   alias Api.Content.Slide
+  alias Api.Subject.Course
+  alias Api.Subject
+
 
   @doc """
   Returns the list of slides.
@@ -49,9 +52,10 @@ defmodule Api.Content do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_slide(attrs \\ %{}) do
+  def create_slide(%Course{} = course, attrs \\ %{}) do
     %Slide{}
     |> Slide.changeset(attrs)
+    |> Ecto.Changeset.put_assoc(:course, course)
     |> Repo.insert()
   end
 
@@ -67,9 +71,10 @@ defmodule Api.Content do
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_slide(%Slide{} = slide, attrs) do
+  def update_slide(%Slide{} = slide, course, attrs) do
     slide
     |> Slide.changeset(attrs)
+    |> Ecto.Changeset.put_change(:course_id, course)
     |> Repo.update()
   end
 

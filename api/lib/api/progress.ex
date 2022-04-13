@@ -7,6 +7,10 @@ defmodule Api.Progress do
   alias Api.Repo
 
   alias Api.Progress.UserTrack
+  alias Api.Accounts.User
+  alias Api.Accounts
+  alias Api.Subject.Course
+  alias Api.Subject
 
   @doc """
   Returns the list of userstrack.
@@ -49,9 +53,11 @@ defmodule Api.Progress do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_user_track(attrs \\ %{}) do
+  def create_user_track(%User{} = user, %Course{} = course, attrs \\ %{}) do
     %UserTrack{}
     |> UserTrack.changeset(attrs)
+    |> Ecto.Changeset.put_assoc(:user, user)
+    |> Ecto.Changeset.put_assoc(:course, course)
     |> Repo.insert()
   end
 
@@ -67,9 +73,11 @@ defmodule Api.Progress do
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_user_track(%UserTrack{} = user_track, attrs) do
+  def update_user_track(%UserTrack{} = user_track, user, course, attrs) do
     user_track
     |> UserTrack.changeset(attrs)
+    |> Ecto.Changeset.put_change(:user_id, user)
+    |> Ecto.Changeset.put_change(:course_id, course)
     |> Repo.update()
   end
 

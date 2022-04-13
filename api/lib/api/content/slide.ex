@@ -12,6 +12,7 @@ defmodule Api.Content.Slide do
     field :order, :string
     field :question, :boolean, default: false
     field :video, :boolean, default: false
+    belongs_to :course, Api.Subject.Course, foreign_key: :course_id
 
     timestamps()
   end

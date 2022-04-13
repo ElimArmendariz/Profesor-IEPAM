@@ -35,7 +35,7 @@ defmodule ApiWeb.Resolvers.Subject do
   def delete_course(%{id: id}, _context) do
     case Api.Subject.get_course!(id) do
       nil -> {:error, "Course not found"}
-      %Course{} = course -> Course.delete_course(course)
+      %Course{} = course -> Api.Subject.delete_course(course)
     end
   end
 

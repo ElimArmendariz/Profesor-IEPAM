@@ -6,7 +6,8 @@ defmodule Api.Subject.Course do
     field :active, :boolean, default: false
     field :description, :string
     field :name, :string
-
+    has_many :userstrack, Api.Progress.UserTrack, on_delete: :delete_all
+    has_many :slides, Api.Content.Slide, on_delete: :delete_all
     timestamps()
   end
 

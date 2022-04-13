@@ -11,6 +11,7 @@ defmodule Api.Accounts.User do
     field :name, :string
     field :password, :string
     field :phone, :string
+    has_many :userstrack, Api.Progress.UserTrack, on_delete: :delete_all
 
     timestamps()
   end
@@ -19,6 +20,6 @@ defmodule Api.Accounts.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:email, :password, :name, :phone, :address, :age, :academiclevel, :laboralxp])
-    |> validate_required([:email, :password, :name, :phone, :address, :age, :academiclevel, :laboralxp])
+    |> validate_required([:email, :password])
   end
 end
