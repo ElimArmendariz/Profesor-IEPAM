@@ -9,7 +9,6 @@ import EditCurseData from './components/EditCurseData';
 import EditDiapositives from './components/EditDiapositives';
 import UnityFrame from './components/UnityFrame';
 import LandingPage from './components/LandingPage';
-import Curses from './components/Curses';
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
           <Route path='/unity' element={<UnityFrame />} />
           <Route path='/resetpassword' element={<ResetPassword/>} />
           <Route path='/editcourse' element={<EditCurseData/>} />
-          <Route path='/curses' element={<Curses/>} />
         </Routes>
         <GlobalStyle />
         <GlobalFonts />

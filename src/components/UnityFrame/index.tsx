@@ -2,6 +2,7 @@ import React from "react";
 import "./UnityFrame.css";
 
 import Unity, { UnityContext } from "react-unity-webgl";
+import HeaderUser from "../HeaderUser";
 
 const unityContext = new UnityContext({
     loaderUrl: "build/Slides.loader.js",
@@ -12,9 +13,12 @@ const unityContext = new UnityContext({
 
 const UnityFrame = () =>  {
     return( 
-        <div className="unity-container">
-            <Unity className="unity-canvas" unityContext={unityContext} />
-        </div>
+        <>
+            <HeaderUser/>
+            <div className="unity-container">
+                <Unity className="unity-canvas" unityContext={unityContext} />
+            </div>
+        </>
     )
 };
 

@@ -4,6 +4,8 @@ import { ButtonsBox, Container, HomeImg, Email, Header, LoginButton, ForgotPassw
 import Logo from "../../images/FullLogo.png"
 import Background from "../../images/Background.jpeg"
 
+import { Link } from "react-router-dom";
+
 
 const LandingPage = () => {
 
@@ -23,8 +25,12 @@ const LandingPage = () => {
                 </Password>
 
                 <ButtonsBox>
-                    <LoginButton>INICIAR SESIÓN</LoginButton>
-                    <ForgotPasswordButton>OLVIDE MI CONTRASEÑA</ForgotPasswordButton>
+                    <Link to="/unity">
+                        <LoginButton>INICIAR SESIÓN</LoginButton>
+                    </Link>
+                    <Link to="forgotpassword">
+                        <ForgotPasswordButton>OLVIDE MI CONTRASEÑA</ForgotPasswordButton>
+                    </Link>
                     <RegisterButton>REGISTRATE</RegisterButton>
                 </ButtonsBox>
                 <HomeImg src ={Background} alt="background"/>
