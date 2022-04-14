@@ -30,8 +30,8 @@ function App() {
           <Routes>
             <Route path='/' element={<LandingPage/>} />
             <Route path='/forgotpassword' element={<ForgotPassword />} />
-            <Route path='/unity' element={<UnityFrame />} />
             <Route path='/resetpassword' element={<ResetPassword/>} />
+            <Route path='/unity' element={<UnityFrame />} />
             <Route path='/editcourse' element={<EditCurseData/>} />
           </Routes>
           <GlobalStyle />

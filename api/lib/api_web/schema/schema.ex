@@ -30,6 +30,9 @@ defmodule ApiWeb.Schema do
     import_fields(:create_user)
     import_fields(:update_user)
     import_fields(:delete_user)
+    import_fields(:login)
+    import_fields(:register)
+
 
     import_fields(:create_slide)
     import_fields(:update_slide)

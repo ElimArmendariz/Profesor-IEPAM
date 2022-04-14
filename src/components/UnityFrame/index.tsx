@@ -15,7 +15,7 @@ const unityContext = new UnityContext({
 const UnityFrame = () =>  {
     const data = useFetchSlides();
     if(data !== "Loading..."){
-      console.log(data);
+      console.log(JSON.stringify(data));
     }
     return( 
         <>

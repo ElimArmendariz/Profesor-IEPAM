@@ -38,4 +38,25 @@ defmodule ApiWeb.Resolvers.Accounts do
     end
   end
 
+  def login(%{email: email, password: password}, _context) do
+    case Api.Accounts.get_user_by_email(email) do
+      nil -> {:ok, "User not found"}
+      %User{} = user -> case user.password == password do
+        true -> {:ok, "Champion :D"}
+        false -> {:ok, "Sorry no login, you're so dummy :("}
+      end
+    end
+  end
+
+  def register(%{email: email, password: password}, _context) do
+    case Api.Accounts.get_user_by_email(email) do
+      nil ->  case Api.Accounts.create_user(%{email: email, password: password}) do
+                {:ok, %User{} = user} -> {:ok, "Champion :D"}
+                {:error, changeset} -> {:ok, "Sorry no login, you're so dummy :("}
+              end
+      %User{} = user -> {:ok, "Sorry not registered, there is a user :("}
+    end
+  end
+
+
 end

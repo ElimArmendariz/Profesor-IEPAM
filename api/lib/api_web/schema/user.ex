@@ -57,4 +57,21 @@ defmodule ApiWeb.Schema.Accounts do
       resolve(&Resolvers.Accounts.delete_user/2)
     end
   end
+
+  object :login do
+    field :login, :string do
+      arg(:email, non_null(:string))
+      arg(:password, non_null(:string))
+      resolve(&Resolvers.Accounts.login/2)
+    end
+  end
+
+  object :register do
+    field :register, :string do
+      arg(:email, non_null(:string))
+      arg(:password, non_null(:string))
+      resolve(&Resolvers.Accounts.register/2)
+    end
+  end
+
 end
