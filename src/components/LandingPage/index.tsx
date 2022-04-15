@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { ButtonsBox, Container, HomeImg, Email, Header, LoginButton, ForgotPasswordButton,RegisterButton, Password } from "./LandingPage.styles";
+import { ButtonsBox, Container, HomeImg, Email, Header, LoginButton, ForgotPasswordButton,RegisterButton, Password, ErrorBox } from "./LandingPage.styles";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -15,6 +15,8 @@ import { Link } from "react-router-dom";
 const LandingPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('Verifique los datos ingresados')
     const [register] = useMutation(REGISTER);
     const [login] = useMutation(LOGIN);
     var obj :any;
@@ -25,6 +27,21 @@ const LandingPage = () => {
 
         if (name === 'email') setEmail(value);
         if (name === 'password') setPassword(value);
+    };
+
+    const validateInputs = () =>{
+        if(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email) === false){
+            setError(true);
+            setErrorMsg('Ingrese un email valido')
+            return false;
+
+        }
+        if(!(password.length > 7 && password.length < 17)){
+            setError(true);
+            setErrorMsg('Ingrese una contraseña valida')
+            return false;
+        }
+        return true;
     };
 
     return(  
@@ -49,16 +66,23 @@ const LandingPage = () => {
                             onChange={handleInput} 
                             placeholder="Contraseña"/>
                     </Password>
-
+                    <ErrorBox error={error}>{errorMsg}</ErrorBox>
                     <ButtonsBox>
                         <form
                             onSubmit={e => {
-                            e.preventDefault();
-                            login({ variables: { email: email, password: password } }).then(data => obj = data).then( () =>{
-                            console.log(obj.data.login);
-                            if(obj.data.login === "Champion :D"){
-                                navigate('/unity');
-                            }});
+                                e.preventDefault();
+                                setError(false);
+                                login({ variables: { email: email, password: password } })
+                                .then(data => obj = data).then( () =>{
+                                    console.log(obj.data.login);
+                                    if(obj.data.login === "Champion :D"){
+                                        navigate('/unity');
+                                    }
+                                    else{
+                                        setErrorMsg('Verifique los datos ingresados')
+                                        setError(true);
+                                    }
+                                });
                         }}>
                             <LoginButton type="submit">INICIAR SESIÓN</LoginButton>
                         </form>
@@ -67,12 +91,22 @@ const LandingPage = () => {
                         </Link>
                         <form
                             onSubmit={e => {
-                            e.preventDefault();
-                            register({ variables: { email: email, password: password } }).then(data => obj = data).then( () =>{
-                            console.log(obj.data.register);
-                            if(obj.data.register === "Champion :D"){
-                                navigate('/unity');
-                            }});
+                                e.preventDefault();
+                                console.log(error);
+                                setError(false);
+                                if(validateInputs() === true){
+                                    register({ variables: { email: email, password: password } })
+                                    .then(data => obj = data).then( () =>{
+                                        console.log(obj.data.register);
+                                        if(obj.data.register === "Champion :D"){
+                                            navigate('/unity');
+                                        }
+                                        else{
+                                            setErrorMsg('Verifique los datos ingresados')
+                                            setError(true);
+                                        }
+                                    });
+                                }
                         }}>
                             <RegisterButton type="submit">REGISTRATE</RegisterButton>
                         </form>

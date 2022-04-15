@@ -52,7 +52,7 @@ defmodule ApiWeb.Resolvers.Accounts do
     case Api.Accounts.get_user_by_email(email) do
       nil ->  case Api.Accounts.create_user(%{email: email, password: password}) do
                 {:ok, %User{} = user} -> {:ok, "Champion :D"}
-                {:error, changeset} -> {:ok, "Sorry no login, you're so dummy :("}
+                {:error, changeset} -> {:ok, "Sorry no register, you're so dummy :("}
               end
       %User{} = user -> {:ok, "Sorry not registered, there is a user :("}
     end

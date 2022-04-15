@@ -82,6 +82,7 @@ export const LoginButton = styled.button`
     font-size: 23px;
     border-radius: 18px;
     width: 520px;
+    border:0px;
     background-color:var(--purple); 
 
     &hover
@@ -98,6 +99,7 @@ export const  RegisterButton = styled.button`
     border-radius: 18px;
     width: 520px; 
     margin:1vh;
+    border:0px;
     background-color:var(--purple);
 
     &hover
@@ -114,7 +116,9 @@ export const ForgotPasswordButton = styled.button`
     border-radius: 18px;
     width: 520px; 
     margin:1vh;
+    border:0px;
     background-color:var(--golden);
+    bor
 
     &hover
     {
@@ -131,6 +135,23 @@ export const ButtonsBox = styled.div`
     text-align:center;
     align-items:center;
     padding-top: 10px;
+`;
+
+interface Props {
+  error: boolean;
+}
+
+export const ErrorBox = styled.div<Props>`
+    background-color:#ff6b6b80;
+    color:#740000;
+    font-family: "OpenSansBold";
+    width: 33vw;
+    margin-left:33vw;
+    padding-left:1vw;
+    font-size:var(--fontMed);
+    visibility: ${props => (props.error ? 'visible' : 'hidden')};
+
+
 `;
 
 

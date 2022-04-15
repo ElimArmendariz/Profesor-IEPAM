@@ -11,7 +11,6 @@ import UnityFrame from './components/UnityFrame';
 import LandingPage from './components/LandingPage';
 import { SEARCH_BASE_URL } from "./config";
 
-
 import {
   ApolloClient,
   InMemoryCache,
@@ -25,21 +24,20 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <Router>
-          <Routes>
-            <Route path='/' element={<LandingPage/>} />
-            <Route path='/forgotpassword' element={<ForgotPassword />} />
-            <Route path='/resetpassword' element={<ResetPassword/>} />
-            <Route path='/unity' element={<UnityFrame />} />
-            <Route path='/editcourse' element={<EditCurseData/>} />
-          </Routes>
-          <GlobalStyle />
-          <GlobalFonts />
-      </Router>
-    </ApolloProvider>
-
-
+      <ApolloProvider client={client}>
+        
+        <Router>
+            <Routes>
+              <Route path='/' element={<LandingPage/>} />
+              <Route path='/forgotpassword' element={<ForgotPassword />} />
+              <Route path='/resetpassword' element={<ResetPassword/>} />
+              <Route path='/unity' element={<UnityFrame />} />
+              <Route path='/editcourse' element={<EditCurseData/>} />
+            </Routes>
+            <GlobalStyle />
+            <GlobalFonts />
+        </Router>
+      </ApolloProvider>
   );
 }
 
