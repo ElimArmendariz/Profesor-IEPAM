@@ -58,5 +58,11 @@ defmodule ApiWeb.Resolvers.Accounts do
     end
   end
 
+  def get_user_by_email(%{email: email}, _context) do
+    case Api.Accounts.get_user_by_email(email) do
+      nil -> {:ok, "User not found"}
+      %User{} = user -> {:ok, user}
+    end
+  end
 
 end

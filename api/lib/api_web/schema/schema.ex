@@ -14,6 +14,7 @@ defmodule ApiWeb.Schema do
 
     import_fields(:get_users)
     import_fields(:get_user)
+    import_fields(:get_user_by_email)
 
     import_fields(:get_slides)
     import_fields(:get_slide)

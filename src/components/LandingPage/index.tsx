@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Logo from "../../images/FullLogo.png"
 import Background from "../../images/Background.jpeg"
-import { REGISTER, LOGIN } from "../../hooks/useSessionHooks";
+import { REGISTER, LOGIN,useGetUserByEmail } from "../../hooks/useSessionHooks";
 import { useMutation } from "@apollo/client";
 
 import { Link } from "react-router-dom";

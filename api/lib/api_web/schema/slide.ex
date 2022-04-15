@@ -18,6 +18,9 @@ defmodule ApiWeb.Schema.Content do
     field :course_id, :integer
   end
 
+
+
+
   object :get_slides do
     field :slides, list_of(:slide) do
       resolve(&Resolvers.Content.list_slides/2)
@@ -62,7 +65,21 @@ defmodule ApiWeb.Schema.Content do
       resolve(&Resolvers.Content.update_slide/2)
     end
   end
+  @doc """
+  input
+  {
+    name: String!
+    description: String!
+    slides: [Slides]
+  }
 
+  Slides {
+    type: SlideType (Enum)
+    text: String!
+    questions: [String!]!
+    answer: Int
+  }
+  """
   object :delete_slide do
     field :delete_slide, :slide do
       arg(:id, non_null(:id))

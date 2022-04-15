@@ -28,6 +28,13 @@ defmodule ApiWeb.Schema.Accounts do
     end
   end
 
+  object :get_user_by_email do
+    field :get_user_by_email, :user do
+      arg(:email, non_null(:string))
+      resolve(&Resolvers.Accounts.get_user_by_email/2)
+    end
+  end
+
   object :create_user do
     field :create_user, :user do
       arg :email, non_null(:string)
