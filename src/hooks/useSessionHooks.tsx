@@ -13,7 +13,7 @@ export const LOGIN = gql`
     }
 `;
 
-export const useGetUserByEmail = (email :string) => {
+export const useGetUserByEmail = async (email :string) => {
     const GET_USER_BY_EMAIL = gql`
         query UserByEmail($email: String!){
             getUserByEmail( email: $email ) {
@@ -25,8 +25,6 @@ export const useGetUserByEmail = (email :string) => {
     const { loading, error, data } = useQuery(GET_USER_BY_EMAIL, {
         variables: {email},
     })
-    if (loading) return "Loading...";
-    if (error) return `Error! ${error.message}`;
     if (data) return data;
 };
 

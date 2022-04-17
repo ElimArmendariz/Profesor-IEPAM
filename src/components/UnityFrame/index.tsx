@@ -17,6 +17,7 @@ const UnityFrame = () =>  {
     if(data !== "Loading..."){
       console.log(JSON.stringify(data));
     }
+    console.log("UnityWindow: "+window.localStorage.getItem("loggedUserID"));
     return( 
         <>
             <HeaderUser/>
