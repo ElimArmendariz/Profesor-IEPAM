@@ -80,7 +80,7 @@ const LandingPage = () => {
                                         window.localStorage.setItem(
                                             'loggedUserID', JSON.stringify(obj.data.login)
                                         )
-                                        navigate('/unity');
+                                        navigate('/courses');
                                     }
                                     else{
                                         setErrorMsg('Verifique los datos ingresados')
@@ -106,7 +106,7 @@ const LandingPage = () => {
                                             window.localStorage.setItem(
                                                 'loggedUserID', JSON.stringify(obj.data.register)
                                             )
-                                            navigate('/unity');
+                                            navigate('/courses');
                                         }
                                         else{
                                             setErrorMsg('Verifique los datos ingresados')

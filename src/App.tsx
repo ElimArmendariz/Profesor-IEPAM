@@ -19,6 +19,7 @@ import {
   InMemoryCache,
   ApolloProvider
 } from "@apollo/client";
+import Courses from './components/Courses';
 
 const client = new ApolloClient({
   uri: SEARCH_BASE_URL,
@@ -34,6 +35,7 @@ function App() {
                 <Routes>
                   <Route path='/' element={<LandingPage/>} />
                   <Route path='/forgotpassword' element={<ForgotPassword />} />
+                  <Route path='/courses' element={<Courses />} />
                   <Route path='/resetpassword' element={<ResetPassword/>} />
                   <Route path='/unity' element={<UnityFrame />} />
                   <Route path='/editcourse' element={<EditCurseData/>} />
