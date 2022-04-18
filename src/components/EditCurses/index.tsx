@@ -5,7 +5,7 @@ import Logo from "../../images/FullLogo.png"
 import Background from "../../images/Background.jpeg"
 
 
-const Curses  = () => {
+const EditCurses  = () => {
 
     return(  
        
@@ -167,4 +167,4 @@ const Curses  = () => {
     )
 };
 
-export default Curses;
+export default EditCurses;
