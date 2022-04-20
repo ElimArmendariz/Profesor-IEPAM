@@ -4,10 +4,10 @@ import "./UnityFrame.css";
 import Unity, { UnityContext } from "react-unity-webgl";
 
 const unityContext = new UnityContext({
-    loaderUrl: "build/Slides.loader.js",
-    dataUrl: "build/Slides.data",
-    frameworkUrl: "build/Slides.framework.js",
-    codeUrl: "build/Slides.wasm",
+    loaderUrl: "build/SlidesWebTes.loader.js",
+    dataUrl: "build/SlidesWebTes.data",
+    frameworkUrl: "build/SlidesWebTes.framework.js",
+    codeUrl: "build/SlidesWebTes.wasm",
   });
 
 const UnityFrame = () =>  {
