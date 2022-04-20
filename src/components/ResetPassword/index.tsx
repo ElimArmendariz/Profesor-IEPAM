@@ -3,14 +3,14 @@ import { Container, Cross, FormsContainer, ButtonContainer, Button,
  PasswordContainer, LogoPassword, Input} from "./ResetPassword.styles";
 import CrossIMG  from "../../images/Cross.svg";
 import PasswordIMG from "../../images/Password.svg";
-import Header from "../Header-Password";
+import Header from "../Header";
 import { Link } from "react-router-dom";
 
 const ResetPassword = () => {
 
     return(
         <>
-            <Header/>
+            <Header page="fp"/>
             <Container>
                 <Link to="/"><Cross src={CrossIMG} alt="Cross SVG"/></Link>
             </Container>

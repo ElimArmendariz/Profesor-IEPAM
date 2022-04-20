@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Logo from "../../images/FullLogo.png"
 import Background from "../../images/Background.jpeg"
-import { REGISTER, LOGIN, useGetUserByEmail } from "../../hooks/useSessionHooks";
+import { REGISTER, LOGIN } from "../../hooks/useSessionHooks";
 import { useMutation } from "@apollo/client";
 
 import { Link } from "react-router-dom";
@@ -78,7 +78,7 @@ const LandingPage = () => {
                                     console.log(obj.data.login);
                                     if(obj.data.login !== "Error"){
                                         window.localStorage.setItem(
-                                            'loggedUserID', JSON.stringify(obj.data.login)
+                                            'loggedUserID', obj.data.login
                                         )
                                         navigate('/courses');
                                     }
@@ -104,7 +104,7 @@ const LandingPage = () => {
                                         console.log(obj.data.register);
                                         if(obj.data.register !== "Error"){
                                             window.localStorage.setItem(
-                                                'loggedUserID', JSON.stringify(obj.data.register)
+                                                'loggedUserID', obj.data.register
                                             )
                                             navigate('/courses');
                                         }

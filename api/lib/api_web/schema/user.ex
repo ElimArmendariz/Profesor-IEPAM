@@ -13,6 +13,7 @@ defmodule ApiWeb.Schema.Accounts do
     field :age, :string
     field :academiclevel, :string
     field :laboralxp, :string
+    field :role, :string
   end
 
   object :get_users do
@@ -54,6 +55,8 @@ defmodule ApiWeb.Schema.Accounts do
       arg(:age, :string)
       arg(:academiclevel, :string)
       arg(:laboralxp, :string)
+      arg(:role, :string)
+
       resolve(&Resolvers.Accounts.update_user/2)
     end
   end

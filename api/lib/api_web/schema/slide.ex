@@ -19,8 +19,6 @@ defmodule ApiWeb.Schema.Content do
   end
 
 
-
-
   object :get_slides do
     field :slides, list_of(:slide) do
       resolve(&Resolvers.Content.list_slides/2)
@@ -84,6 +82,13 @@ defmodule ApiWeb.Schema.Content do
     field :delete_slide, :slide do
       arg(:id, non_null(:id))
       resolve(&Resolvers.Content.delete_slide/2)
+    end
+  end
+
+  object :get_slides_by_course_id do
+    field :get_slides_by_course_id, list_of(:slide) do
+      arg(:course_id, non_null(:id))
+      resolve(&Resolvers.Content.list_slides_by_course_id/2)
     end
   end
 

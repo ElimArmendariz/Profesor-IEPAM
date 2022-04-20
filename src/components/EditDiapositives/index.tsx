@@ -4,7 +4,7 @@ import {
     CrossDiv, Container, RadioContainer, FirstContainer, Cross, RadioButton,
     URLinput, BlockContainer, Pregunta, Respuesta, AnswersContainer, ArrowLeft, ArrowRight, ButtonContainer
 } from "./EditDiapositives.styles";
-import Header from "../HeaderUser";
+import Header from "../Header";
 import CrossIMG from "../../images/Cross.svg"
 import ArrowLeftIMG from '../../images/ArrowLeft.png';
 import ArrowRightIMG from '../../images/ArrowRigth.png';
@@ -88,7 +88,7 @@ const EditDiapositives: React.FC<Props> = ({ sn }) => {
 
     return (
         <>
-            <Header />
+            <Header page=""/>
             <CrossDiv>
                 <Cross src={CrossIMG} />
             </CrossDiv>

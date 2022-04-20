@@ -3,7 +3,7 @@ import {
     ImgContainer, FirstContainer, SecondContainer, ThirdContainer, NombreCurso,
     CajaTexto, Texto, FormatedButton, ButtonContainer, Guardar, User
 } from "./EditCurseData.styles";
-import Header from "../HeaderUser";
+import Header from "../Header";
 import UserIMG from '../../images/User.svg';
 import MinusIMG from '../../images/Minus.svg';
 import PlusIMG from '../../images/Plus.svg';
@@ -29,7 +29,7 @@ const EditCurseData = () => {
     return (
         <>
             {!passScreen ? <>
-                <Header />
+                <Header page=""/>
                 <form action="#" name="formsCurso" >
                     <FirstContainer>
                         <ImgContainer>

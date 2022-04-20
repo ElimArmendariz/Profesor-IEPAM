@@ -18,6 +18,8 @@ defmodule ApiWeb.Schema do
 
     import_fields(:get_slides)
     import_fields(:get_slide)
+    import_fields(:get_slides_by_course_id)
+
 
     import_fields(:get_user_tracks)
     import_fields(:get_user_track)

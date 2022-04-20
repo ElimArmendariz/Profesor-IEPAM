@@ -2,8 +2,10 @@ import React from "react";
 import "./UnityFrame.css";
 
 import Unity, { UnityContext } from "react-unity-webgl";
-import HeaderUser from "../HeaderUser";
-import { useFetchSlides } from "../../hooks/useFetchSlides";
+import Header from "../Header";
+import { useFetchSlidesByCourse } from "../../hooks/useFetchSlides";
+import { useParams } from "react-router-dom";
+
 
 const unityContext = new UnityContext({
     loaderUrl: "build/Slides.loader.js",
@@ -12,15 +14,18 @@ const unityContext = new UnityContext({
     codeUrl: "build/Slides.wasm",
   });
 
+
 const UnityFrame = () =>  {
-    const data = useFetchSlides();
+    const {courseID} = useParams();
+    const data = useFetchSlidesByCourse(Number(courseID));
     if(data !== "Loading..."){
       console.log(JSON.stringify(data));
+      unityContext.send("SlideManager", "getData", JSON.stringify(data));
     }
-    console.log("UnityWindow: "+window.localStorage.getItem("loggedUserID"));
+    //console.log("UnityWindow: "+window.localStorage.getItem("loggedUserID"));
     return( 
         <>
-            <HeaderUser/>
+            <Header page=""/>
             <div className="unity-container">
                 <Unity className="unity-canvas" unityContext={unityContext} />
             </div>

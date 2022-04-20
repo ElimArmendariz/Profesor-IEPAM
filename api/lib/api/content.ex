@@ -24,6 +24,20 @@ defmodule Api.Content do
     Repo.all(Slide)
   end
 
+
+  def list_slides_by_course(course_id) do
+    Slide
+    |> course_slides_query(course_id)
+    |> Repo.all()
+    |> Enum.map(
+      &Map.take(&1, [:id, :description, :order, :video, :question, :answer1, :answer2, :answer3, :answer4, :correct_ans ])
+    )
+  end
+
+  defp course_slides_query(query, course_id) do
+    from(u in query, where: u.course_id == ^course_id)
+  end
+
   @doc """
   Gets a single slide.
 
@@ -39,6 +53,8 @@ defmodule Api.Content do
 
   """
   def get_slide!(id), do: Repo.get!(Slide, id)
+
+
 
   @doc """
   Creates a slide.

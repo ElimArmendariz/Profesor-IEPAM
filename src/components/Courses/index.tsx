@@ -1,6 +1,6 @@
 import React from "react";
 import Course from "../Course";
-import HeaderUser from "../HeaderUser";
+import Header from "../Header";
 import { useCoursesHooks } from "../../hooks/useCourseHooks";
 
 import { Title, GridCourses } from "./Courses.styles";
@@ -12,7 +12,7 @@ const Courses = () => {
     console.log(data);
     return (
         <>
-            <HeaderUser/>
+            <Header page=""/>
             <Title>TUS CURSOS</Title>
             <GridCourses>
                 {data.courses.map((course :any)  => (

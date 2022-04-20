@@ -1,14 +1,14 @@
 import React from "react";
 import { Container, Texto, Cross } from "./ForgotPassword.styles";
 import CrossIMG  from "../../images/Cross.svg";
-import Header from "../Header-Password";
+import Header from "../Header";
 import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
 
     return(        
         <>
-            <Header/>
+            <Header page="fp"/>
             <Container>
                 <Link to="/resetpassword"><Cross src={CrossIMG} alt="Cross SVG"/></Link>
             </Container>

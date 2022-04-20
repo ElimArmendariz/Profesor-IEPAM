@@ -54,6 +54,7 @@ export const LogoPassword = styled.img `
     max-height: 100%;
     @media (max-width: 600px){
         max-height: 75%;
+    }
 `;
 
 export const Input = styled.input `
@@ -70,4 +71,5 @@ export const Input = styled.input `
     }
     @media (max-width: 600px){
         font-size: medium;
+    }
 `;

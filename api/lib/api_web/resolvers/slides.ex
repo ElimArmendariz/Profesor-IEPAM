@@ -41,6 +41,10 @@ defmodule ApiWeb.Resolvers.Content do
     end
   end
 
+  def list_slides_by_course_id(%{course_id: course_id}, _context) do
+    {:ok, Api.Content.list_slides_by_course(course_id)}
+  end
+
   @desc """
   def create_slide(%{description: description, order: order, video: video,
                      question: question, answer1: answer1, answer2: answer2,
