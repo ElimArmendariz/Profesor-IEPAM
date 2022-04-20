@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CajaTexto, Guardar, Texto } from "../EditCurseData/EditCurseData.styles";
 import {
     CrossDiv, Container, RadioContainer, FirstContainer, Cross, RadioButton,
@@ -9,26 +9,29 @@ import CrossIMG from "../../images/Cross.svg"
 import ArrowLeftIMG from '../../images/ArrowLeft.png';
 import ArrowRightIMG from '../../images/ArrowRigth.png';
 import EditCurseData from "../EditCurseData";
-import internal from "stream";
-import { render } from "@testing-library/react";
 
-interface Props {
-    sn: number
+interface newSlide{
+    texto: string;
+    answer1: string;
+    answer2: string;
+    answer3: string;
+    answer4: string;
+    correctAnswer: number;
 }
 
-
-const EditDiapositives: React.FC<Props> = ({ sn }) => {
+const EditDiapositives = () => {
     //Hooks para tipo de diapositiva
     const [isTextoShown, setTextoShown] = useState(false);
     const [isVideoShown, setVideoShown] = useState(false);
     const [isPreguntaShown, setPreguntaShown] = useState(false);
 
     const [passScreen, setPassScreen] = useState(true);
+    const [slideNumber, setSlideNumber] = useState(0);
     //Hook para mostrar el boton
     const [showButton, setShowButton] = useState(false);
     //Hooks para obtener los datos ingresados para el slide
     const [textoSlide, setTextoSlide] = useState("");
-    const [array, setArray] = useState<string[]>([]);
+    const [array, setArray] = useState<any>([]);
     const [ans1, setAns1] = useState('');
     const [ans2, setAns2] = useState('');
     const [ans3, setAns3] = useState('');
@@ -77,14 +80,22 @@ const EditDiapositives: React.FC<Props> = ({ sn }) => {
         }
     }
 
-    const slide = () => {
-        return {textoSlide, ans1, ans2, ans3, ans4, correctAns}
-    }
-
     const addSlide = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        const slide: newSlide = {
+            texto: textoSlide,
+            answer1: ans1,
+            answer2: ans2,
+            answer3: ans3,
+            answer4: ans4,
+            correctAnswer: correctAns,
+        };
+        setArray([...array, slide]);
     }
+
+    useEffect(() => {
+        console.log(array);
+        }, [array]);
 
     return (
         <>

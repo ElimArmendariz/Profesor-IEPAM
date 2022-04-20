@@ -11,16 +11,11 @@ import CrossIMG from '../../images/Cross.svg';
 import EditDiapositives from "../EditDiapositives";
 
 const EditCurseData = () => {
-    const [slideNumber, setSlideNumber] = useState(1);
     const [passScreen, setPassScreen] = useState(false);
     const [nombreCurso, setNombreCurso] = useState('');
     const [descripcionCurso, setDescripcionCurso] = useState("")
-    if (slideNumber < 1) {
-        setSlideNumber(1);
-    }
 
     const onClick = () => {
-        console.log({ nombreCurso, descripcionCurso, slideNumber })
         if (nombreCurso != '' && descripcionCurso != "") {
             setPassScreen(true)
         }
@@ -48,18 +43,11 @@ const EditCurseData = () => {
                     </SecondContainer>
                 </form>
 
-                <Texto>Número de diapositivas</Texto>
-                <ThirdContainer>
-                    <FormatedButton onClick={() => setSlideNumber(slideNumber - 1)}><img src={MinusIMG} /></FormatedButton>
-                    <Texto>{slideNumber}</Texto>
-                    <FormatedButton onClick={() => setSlideNumber(slideNumber + 1)}><img src={PlusIMG} /></FormatedButton>
-                </ThirdContainer>
-
                 <ButtonContainer>
                     <Guardar type="submit" onClick={onClick}>GUARDAR</Guardar>
                 </ButtonContainer>
             </>
-                : <EditDiapositives sn={slideNumber} />
+                : <EditDiapositives/>
             }
         </>
     )
